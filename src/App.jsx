@@ -1,24 +1,45 @@
 import { useState } from "react";
 import viteLogo from "/vite.svg";
-// import "./App.css";
-import { Progressbar } from "./assets/components/StepProgressBar/StepProgressBar";
+import { Pg1 } from "./assets/components/Pg1/Pg1";
+
+import { Container, Row, Col, Button } from "react-bootstrap";
+import { StepProgressBar } from "./assets/components/StepProgressBar/StepProgressBar";
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [index, setIndex] = useState(1);
+
+  const prevButton = () => {
+    if (index > 1) {
+      setIndex((prevIndex) => prevIndex - 1);
+    }
+  };
+  const nextButton = () => {
+    if (index < 3) {
+      setIndex((prevIndex) => prevIndex + 1);
+    }
+  };
 
   return (
     <>
-      <Progressbar />
+      <Container className="custom-margin">
+        <Row>
+          <Col>
+            <StepProgressBar step={index} />
+          </Col>
+        </Row>
+        <Row>
+          <h2 className="center">Title</h2>
+        </Row>
+        <Pg1 />
+        <Button onClick={prevButton}>Prev</Button>
+        <Button onClick={nextButton}>Next</Button>
+      </Container>
+
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
       </div>
     </>
   );
