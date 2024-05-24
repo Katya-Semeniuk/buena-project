@@ -1,22 +1,24 @@
 import { useState } from "react";
 import viteLogo from "/vite.svg";
 import { Pg1 } from "./assets/components/Pg1/Pg1";
+import { Pg2 } from "./assets/components/Pg2/Pg2";
+import { Pg3 } from "./assets/components/Pg3/Pg3";
 
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { StepProgressBar } from "./assets/components/StepProgressBar/StepProgressBar";
 import "./App.css";
 
 function App() {
-  const [index, setIndex] = useState(1);
+  const [page, setPage] = useState(1);
 
   const prevButton = () => {
-    if (index > 1) {
-      setIndex((prevIndex) => prevIndex - 1);
+    if (page > 1) {
+      setPage((prevIndex) => prevIndex - 1);
     }
   };
   const nextButton = () => {
-    if (index < 3) {
-      setIndex((prevIndex) => prevIndex + 1);
+    if (page < 3) {
+      setPage((prevIndex) => prevIndex + 1);
     }
   };
 
@@ -25,13 +27,14 @@ function App() {
       <Container className="custom-margin">
         <Row>
           <Col>
-            <StepProgressBar step={index} />
+            <StepProgressBar step={page} />
           </Col>
         </Row>
         <Row>
           <h2 className="center">Title</h2>
         </Row>
-        <Pg1 />
+        <Row>{page == 1 ? <Pg1 /> : page == 2 ? <Pg2 /> : <Pg3 />}</Row>
+
         <Button onClick={prevButton}>Prev</Button>
         <Button onClick={nextButton}>Next</Button>
       </Container>
