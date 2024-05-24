@@ -11,7 +11,7 @@ import "./App.css";
 function App() {
   const [page, setPage] = useState(1);
 
-  const prevButton = () => {
+  const backButton = () => {
     if (page > 1) {
       setPage((prevIndex) => prevIndex - 1);
     }
@@ -34,9 +34,8 @@ function App() {
           <h2 className="center">Title</h2>
         </Row>
         <Row>{page == 1 ? <Pg1 /> : page == 2 ? <Pg2 /> : <Pg3 />}</Row>
-
-        <Button onClick={prevButton}>Prev</Button>
-        <Button onClick={nextButton}>Next</Button>
+        {page > 1 && <Button onClick={backButton}>Back</Button>}
+        {page < 3 && <Button onClick={nextButton}>Next</Button>}
       </Container>
 
       <div>
