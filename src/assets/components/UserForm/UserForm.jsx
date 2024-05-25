@@ -21,7 +21,7 @@ function UserForm() {
 
   return (
     <Container>
-      <Row>
+      <Row className="mb-4">
         <Col>
           <StepProgressBar step={page} />
         </Col>
