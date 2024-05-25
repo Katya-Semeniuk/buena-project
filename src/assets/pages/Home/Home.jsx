@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
+import NavBar from "../../components/NavBar/NavBar";
 import ModalWindow from "../../components/modalwindow/ModalWindow";
 
 function Home() {
@@ -9,9 +10,10 @@ function Home() {
   const handleShow = () => setShow(true);
   return (
     <>
-      <header>Header</header>
+      <NavBar />
+      <div>Register with Buena and start booking apartments</div>
       <Button variant="primary" onClick={handleShow}>
-        Fill out the register form
+        Start now
       </Button>
       <ModalWindow show={show} handleClose={handleClose} />
     </>

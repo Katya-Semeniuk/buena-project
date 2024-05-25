@@ -20,15 +20,13 @@ function UserForm() {
   };
 
   return (
-    <Container className="custom-margin">
+    <Container>
       <Row>
         <Col>
           <StepProgressBar step={page} />
         </Col>
       </Row>
-      <Row>
-        <h2 className="center">Title</h2>
-      </Row>
+
       <Row>{page === 1 ? <Pg1 /> : page === 2 ? <Pg2 /> : <Pg3 />}</Row>
       {page > 1 && <Button onClick={backButton}>Back</Button>}
       {page < 3 && <Button onClick={nextButton}>Next</Button>}

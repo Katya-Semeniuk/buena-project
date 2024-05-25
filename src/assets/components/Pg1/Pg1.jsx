@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import FormContext from "../formcontext/form.context";
-import { Button, Form } from "react-bootstrap";
+import { Form } from "react-bootstrap";
 
 function Pg1() {
   const { firstName, setFirstName, secondName, setSecondName } =
@@ -14,10 +14,6 @@ function Pg1() {
     setSecondName(e.target.value);
   };
 
-  const resetPage1 = () => {
-    setFirstName("");
-    setSecondName("");
-  };
   return (
     <Form>
       <Form.Group className="mb-3" controlId="formBasicFirstName">
@@ -26,6 +22,7 @@ function Pg1() {
           type="text"
           value={firstName}
           onChange={handleFirstNameChange}
+          autoFocus
         />
       </Form.Group>
 
@@ -37,7 +34,6 @@ function Pg1() {
           onChange={handleSecondNameChange}
         />
       </Form.Group>
-      <Button as="input" type="reset" value="Reset" onClick={resetPage1} />
     </Form>
   );
 }

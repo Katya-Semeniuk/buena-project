@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import FormContext from "../formcontext/form.context";
-import { Button, Form } from "react-bootstrap";
+import { Form, Container, Row, Col } from "react-bootstrap";
 
 function Pg2() {
   const { email, setEmail, phone, setPhone } = useContext(FormContext);
@@ -13,10 +13,6 @@ function Pg2() {
     setPhone(e.target.value);
   };
 
-  const resetPage2 = () => {
-    setEmail("");
-    setPhone("");
-  };
   return (
     <Form>
       <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -34,13 +30,98 @@ function Pg2() {
 
       <Form.Group className="mb-3" controlId="formBasicPhoneNumber">
         <Form.Label>Phone Number</Form.Label>
-        <Form.Control
-          type="number"
-          value={phone}
-          onChange={handlePhoneChange}
-        />
+        <Form.Control type="tel" value={phone} onChange={handlePhoneChange} />
       </Form.Group>
-      <Button as="input" type="reset" value="Reset" onClick={resetPage2} />
+
+      <Container>
+        {["radio"].map((type) => (
+          <div key={`inline-${type}`} className="mb-4 mt-4">
+            <Row>
+              <Col>
+                <Form.Check
+                  inline
+                  label="0 - 1.000"
+                  name="group1"
+                  type={type}
+                  id={`default-${type}-1`}
+                />
+              </Col>
+              <Col>
+                <Form.Check
+                  label="1.000 - 2.000"
+                  name="group1"
+                  type={type}
+                  id={`default-${type}-2`}
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Form.Check
+                  label="2.000 - 3.000"
+                  name="group1"
+                  type={type}
+                  id={`default-${type}-3`}
+                />
+              </Col>
+              <Col>
+                <Form.Check
+                  label="3.000 - 4.000"
+                  name="group1"
+                  type={type}
+                  id={`default-${type}-3`}
+                />
+              </Col>
+            </Row>
+            <Row>
+              <Col>
+                <Form.Check
+                  label="Mehr als 4.000"
+                  name="group1"
+                  type={type}
+                  id={`default-${type}-3`}
+                />
+              </Col>
+            </Row>
+          </div>
+        ))}
+      </Container>
+
+      {/* {["radio"].map((type) => (
+        <div key={`inline-${type}`} className="mb-3">
+          <Form.Check
+            inline
+            label="0 - 1.000"
+            name="group1"
+            type={type}
+            id={`default-${type}-1`}
+          />
+          <Form.Check
+            label="1.000 - 2.000"
+            name="group1"
+            type={type}
+            id={`default-${type}-2`}
+          />
+          <Form.Check
+            label="2.000 - 3.000"
+            name="group1"
+            type={type}
+            id={`default-${type}-3`}
+          />
+          <Form.Check
+            label="3.000 - 4.000"
+            name="group1"
+            type={type}
+            id={`default-${type}-3`}
+          />
+          <Form.Check
+            label="Mehr als 4.000"
+            name="group1"
+            type={type}
+            id={`default-${type}-3`}
+          />
+        </div>
+      ))} */}
     </Form>
   );
 }
