@@ -1,12 +1,16 @@
-import Form from "react-bootstrap/Form";
+import { useContext } from "react";
+import FormContext from "../formcontext/form.context";
 
-export const Pg3 = () => {
+function Pg3() {
+  const { firstName, secondName, email, phone } = useContext(FormContext);
   return (
-    <Form>
-      <Form.Group className="mb-3" controlId="formBasicFirstName">
-        <Form.Label>Form 3</Form.Label>
-        <Form.Control type="text" />
-      </Form.Group>
-    </Form>
+    <ul>
+      <li>{firstName}</li>
+      <li>{secondName}</li>
+      <li>{email}</li>
+      <li>{phone}</li>
+    </ul>
   );
-};
+}
+
+export default Pg3;

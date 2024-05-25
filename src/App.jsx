@@ -1,8 +1,9 @@
 import { useState } from "react";
 import viteLogo from "/vite.svg";
-import { Pg1 } from "./assets/components/Pg1/Pg1";
-import { Pg2 } from "./assets/components/Pg2/Pg2";
-import { Pg3 } from "./assets/components/Pg3/Pg3";
+import Home from "./assets/pages/Home/Home";
+import Pg1 from "./assets/components/Pg1/Pg1";
+import Pg2 from "./assets/components/Pg2/Pg2";
+import Pg3 from "./assets/components/Pg3/Pg3";
 
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { StepProgressBar } from "./assets/components/StepProgressBar/StepProgressBar";
@@ -24,6 +25,7 @@ function App() {
 
   return (
     <>
+      <Home />
       <Container className="custom-margin">
         <Row>
           <Col>

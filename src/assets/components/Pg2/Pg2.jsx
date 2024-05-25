@@ -2,7 +2,7 @@ import { useContext } from "react";
 import FormContext from "../formcontext/form.context";
 import { Button, Form } from "react-bootstrap";
 
-export const Pg2 = () => {
+function Pg2() {
   const { email, setEmail, phone, setPhone } = useContext(FormContext);
 
   const handleEmailChange = (e) => {
@@ -43,4 +43,6 @@ export const Pg2 = () => {
       <Button as="input" type="reset" value="Reset" onClick={resetPage2} />
     </Form>
   );
-};
+}
+
+export default Pg2;
