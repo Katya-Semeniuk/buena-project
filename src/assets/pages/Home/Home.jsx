@@ -11,7 +11,7 @@ function Home() {
     <>
       <header>Header</header>
       <Button variant="primary" onClick={handleShow}>
-        Launch demo modal
+        Fill out the register form
       </Button>
       <ModalWindow show={show} handleClose={handleClose} />
     </>

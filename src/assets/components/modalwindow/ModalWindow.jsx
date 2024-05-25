@@ -1,21 +1,24 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
+import UserForm from "../UserForm/UserForm";
 
 function ModalWindow({ show, handleClose }) {
   return (
     <>
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
+          <Modal.Title>Register Form</Modal.Title>
         </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
+        <Modal.Body>
+          <UserForm />
+        </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary" onClick={handleClose}>
+          {/* <Button variant="primary" onClick={handleClose}>
             Save Changes
-          </Button>
+          </Button> */}
         </Modal.Footer>
       </Modal>
     </>
