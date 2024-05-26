@@ -8,7 +8,7 @@ const pg1ValidationSchema = Yup.object().shape({
   firstName: Yup.string().required("First Name is required"),
   lastName: Yup.string().required("Last Name is required"),
   email: Yup.string()
-    .email("This is an ERROR email")
+    .email("Email must contain only Latin characters")
     .matches(/^[a-zA-Z0-9@.]+$/, "Email must contain only Latin characters")
     .required("Email is required"),
 });
@@ -17,22 +17,12 @@ function Pg1({ next }) {
   const { firstName, setFirstName, lastName, setLastName, email, setEmail } =
     useContext(FormContext);
 
-  const handleSubmit = () => {
-    console.log("page 1");
-    next();
-  };
-  const handEmailChange = (e) => {
-    const { name, value } = e.target;
-    console.log("email", name, value);
-  };
-  const handleLNChange = (e) => {
-    const { name, value } = e.target;
-    console.log("LN", name, value);
-  };
+  const handleSubmit = ({ firstName, lastName, email }) => {
+    setFirstName(firstName);
+    setLastName(lastName);
+    setEmail(email);
 
-  const handleFNChange = (e) => {
-    const { name, value } = e.target;
-    console.log("FN", name, value);
+    next();
   };
 
   return (
@@ -47,7 +37,7 @@ function Pg1({ next }) {
     >
       {({ handleSubmit, handleChange, values, touched, errors }) => (
         <Form noValidate onSubmit={handleSubmit}>
-          <Form.Group className="mb-3" controlId="formBasicPhoneNumber">
+          <Form.Group className="mb-3" controlId="formBasicFirstName">
             <Form.Label>First Name:</Form.Label>
             <Form.Control
               type="text"
@@ -84,13 +74,14 @@ function Pg1({ next }) {
             <Form.Control
               type="email"
               name="email"
+              placeholder="Email format @ "
               value={values.email}
               onChange={handleChange}
               isValid={touched.email && !errors.email}
               isInvalid={touched.email && !!errors.email}
             />
             <Form.Control.Feedback type="invalid">
-              Please enter correct email
+              {errors.email}
             </Form.Control.Feedback>
           </Form.Group>
           <Button type="submit">Next</Button>

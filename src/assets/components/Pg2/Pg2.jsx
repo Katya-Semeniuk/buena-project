@@ -4,7 +4,7 @@ import { Form, Container, Row, Col, Button } from "react-bootstrap";
 import { Formik } from "formik";
 import * as Yup from "yup";
 
-const regexPhone = /^49\s\(\d{3}\)\s\d{3}\s\d{2}\s\d{2}$/;
+const regexPhone = /^49\d{3}\d{3}\d{2}\d{2}$/;
 
 const pg2ValidationSchema = Yup.object().shape({
   phone: Yup.string()
@@ -12,19 +12,19 @@ const pg2ValidationSchema = Yup.object().shape({
       message: "Invalid phone number",
     })
     .required(),
-  salary: Yup.number().required(),
+  salary: Yup.string().required(),
 });
 
 function Pg2({ next, prev }) {
   const { phone, salary, setPhone, setSalary } = useContext(FormContext);
 
-  const handlePhoneChange = (e) => {
-    setPhone(e.target.value);
+  const handleSubmit = ({ phone, salary }) => {
+    setPhone(phone);
+    setSalary(salary);
+
+    next();
   };
 
-  const handleSalary = (e) => {
-    setSalary(e.target.value);
-  };
   return (
     <Formik
       validationSchema={pg2ValidationSchema}
@@ -36,26 +36,22 @@ function Pg2({ next, prev }) {
     >
       {({ handleSubmit, handleChange, values, touched, errors }) => (
         <Form noValidate onSubmit={handleSubmit}>
-          <Row className="mb-3">
-            <Form.Group
-              as={Col}
-              className="mb-3"
-              controlId="formBasicPhoneNumber"
-            >
-              <Form.Label>Phone Number:</Form.Label>
-              <Form.Control
-                type="tel"
-                name="phone"
-                value={values.phone}
-                onChange={handlePhoneChange}
-                isValid={touched.firstName && !errors.firstName}
-                isInvalid={!!errors.firstName}
-              />
-              <Form.Control.Feedback type="invalid">
-                {errors.phone}
-              </Form.Control.Feedback>
-            </Form.Group>
-          </Row>
+          <Form.Group className="mb-3" controlId="formBasicPhoneNumber">
+            <Form.Label>Phone Number:</Form.Label>
+            <Form.Control
+              type="tel"
+              name="phone"
+              placeholder="Phone format 49********* "
+              value={values.phone}
+              onChange={handleChange}
+              isValid={touched.phone && !errors.phone}
+              isInvalid={touched.phone && !!errors.phone}
+            />
+            <Form.Control.Feedback type="invalid">
+              Invalid phone number
+            </Form.Control.Feedback>
+          </Form.Group>
+
           <Form.Label>Salary indication:</Form.Label>
           <Container>
             {["radio"].map((type) => (
@@ -65,21 +61,25 @@ function Pg2({ next, prev }) {
                     <Form.Check
                       inline
                       label="0 - 1.000"
-                      name="group1"
+                      name="salary"
                       type={type}
                       id={`default-${type}-1`}
-                      onChange={handleSalary}
+                      onChange={handleChange}
                       value="0 - 1.000"
+                      isValid={touched.salary && !errors.salary}
+                      isInvalid={touched.salary && !!errors.salary}
                     />
                   </Col>
                   <Col>
                     <Form.Check
                       label="1.000 - 2.000"
-                      name="group1"
+                      name="salary"
                       type={type}
                       id={`default-${type}-2`}
-                      onChange={handleSalary}
+                      onChange={handleChange}
                       value="1.000 - 2.000"
+                      isValid={touched.salary && !errors.salary}
+                      isInvalid={touched.salary && !!errors.salary}
                     />
                   </Col>
                 </Row>
@@ -87,21 +87,25 @@ function Pg2({ next, prev }) {
                   <Col>
                     <Form.Check
                       label="2.000 - 3.000"
-                      name="group1"
+                      name="salary"
                       type={type}
                       id={`default-${type}-3`}
-                      onChange={handleSalary}
+                      onChange={handleChange}
                       value="2.000 - 3.000"
+                      isValid={touched.salary && !errors.salary}
+                      isInvalid={touched.salary && !!errors.salary}
                     />
                   </Col>
                   <Col>
                     <Form.Check
                       label="3.000 - 4.000"
-                      name="group1"
+                      name="salary"
                       type={type}
                       id={`default-${type}-4`}
-                      onChange={handleSalary}
+                      onChange={handleChange}
                       value="3.000 - 4.000"
+                      isValid={touched.salary && !errors.salary}
+                      isInvalid={touched.salary && !!errors.salary}
                     />
                   </Col>
                 </Row>
@@ -109,18 +113,22 @@ function Pg2({ next, prev }) {
                   <Col>
                     <Form.Check
                       label="Mehr als 4.000"
-                      name="group1"
+                      name="salary"
                       type={type}
                       id={`default-${type}-5`}
-                      onChange={handleSalary}
+                      onChange={handleChange}
                       value="Mehr als 4.000"
+                      isValid={touched.salary && !errors.salary}
+                      isInvalid={touched.salary && !!errors.salary}
                     />
                   </Col>
                 </Row>
               </div>
             ))}
           </Container>
-          <Button type="phone">Back</Button>
+          <Button type="button" onClick={() => prev()}>
+            Back
+          </Button>
           <Button type="submit">Next</Button>
         </Form>
       )}

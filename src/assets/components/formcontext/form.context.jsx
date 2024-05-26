@@ -7,7 +7,7 @@ export const FormProvider = ({ children }) => {
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [salary, setSalary] = useState(null);
+  const [salary, setSalary] = useState("");
 
   return (
     <FormContext.Provider
