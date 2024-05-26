@@ -1,24 +1,10 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 import FormContext from "../formcontext/form.context";
-import { Button } from "react-bootstrap";
+// import { Link } from "react-router-dom";
 
 function Pg3() {
   const { firstName, secondName, email, phone, salary } =
     useContext(FormContext);
-
-  const submitForm = (e) => {
-    e.preventDefault();
-
-    const formObj = {
-      firstName: firstName,
-      secondName: secondName,
-      email: email,
-      phone: phone,
-      salary: salary,
-    };
-  };
-
   return (
     <div>
       <div className="d-flex">
@@ -41,9 +27,6 @@ function Pg3() {
         <p className="me-2">Salary</p>
         <p>{salary}</p>
       </div>
-      <Button type="submit" value="Submit" onClick={submitForm}>
-        <Link to="/account">Submit</Link>
-      </Button>
     </div>
   );
 }

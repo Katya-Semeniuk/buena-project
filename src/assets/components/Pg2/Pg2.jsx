@@ -13,7 +13,7 @@ function Pg2() {
     setSalary(e.target.value);
   };
   return (
-    <Form>
+    <>
       <Form.Group className="mb-3" controlId="formBasicPhoneNumber">
         <Form.Label>Phone Number:</Form.Label>
         <Form.Control type="tel" value={phone} onChange={handlePhoneChange} />
@@ -83,7 +83,7 @@ function Pg2() {
           </div>
         ))}
       </Container>
-    </Form>
+    </>
   );
 }
 

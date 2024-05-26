@@ -25,7 +25,7 @@ function Pg1() {
   };
 
   return (
-    <Form>
+    <>
       <Form.Group className="mb-3" controlId="formBasicFirstName">
         <Form.Label>First Name:</Form.Label>
         <Form.Control
@@ -56,7 +56,39 @@ function Pg1() {
           Well never share your email with anyone else.
         </Form.Text>
       </Form.Group>
-    </Form>
+    </>
+    // <Form>
+    //   <Form.Group className="mb-3" controlId="formBasicFirstName">
+    //     <Form.Label>First Name:</Form.Label>
+    //     <Form.Control
+    //       type="text"
+    //       value={firstName}
+    //       onChange={handleFirstNameChange}
+    //       autoFocus
+    //     />
+    //   </Form.Group>
+
+    //   <Form.Group className="mb-3" controlId="formBasicSecondName">
+    //     <Form.Label>Last Name:</Form.Label>
+    //     <Form.Control
+    //       type="text"
+    //       value={secondName}
+    //       onChange={handleSecondNameChange}
+    //     />
+    //   </Form.Group>
+    //   <Form.Group className="mb-3" controlId="formBasicEmail">
+    //     <Form.Label>Email address:</Form.Label>
+    //     <Form.Control
+    //       type="email"
+    //       placeholder="Enter email"
+    //       value={email}
+    //       onChange={handleEmailChange}
+    //     />
+    //     <Form.Text className="text-muted">
+    //       Well never share your email with anyone else.
+    //     </Form.Text>
+    //   </Form.Group>
+    // </Form>
   );
 }
 
