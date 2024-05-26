@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import FormContext from "../formcontext/form.context";
-import { Form } from "react-bootstrap";
+import { Form, Col } from "react-bootstrap";
 
 function Pg1() {
   const {
@@ -26,19 +26,22 @@ function Pg1() {
 
   return (
     <>
-      <Form.Group className="mb-3" controlId="formBasicFirstName">
+      <Form.Group as={Col} className="mb-3" controlId="formBasicFirstName">
         <Form.Label>First Name:</Form.Label>
         <Form.Control
+          required
           type="text"
           value={firstName}
           onChange={handleFirstNameChange}
           autoFocus
         />
+        <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
       </Form.Group>
 
       <Form.Group className="mb-3" controlId="formBasicSecondName">
         <Form.Label>Last Name:</Form.Label>
         <Form.Control
+          required
           type="text"
           value={secondName}
           onChange={handleSecondNameChange}
@@ -47,11 +50,15 @@ function Pg1() {
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address:</Form.Label>
         <Form.Control
+          required
           type="email"
           placeholder="Enter email"
           value={email}
           onChange={handleEmailChange}
         />
+        <Form.Control.Feedback type="invalid">
+          Please enter correct email
+        </Form.Control.Feedback>
         <Form.Text className="text-muted">
           Well never share your email with anyone else.
         </Form.Text>

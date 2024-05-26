@@ -10,7 +10,10 @@ import Pg3 from "../Pg3/Pg3";
 function UserForm({ closeModalWindow }) {
   const { firstName, secondName, email, phone, salary } =
     useContext(FormContext);
+
   const [page, setPage] = useState(1);
+
+  const [validated, setValidated] = useState(false);
 
   const backButton = () => {
     if (page > 1) {
@@ -24,9 +27,13 @@ function UserForm({ closeModalWindow }) {
   };
 
   const submitForm = (e) => {
-    e.preventDefault();
-    console.log("form submitted");
+    const form = e.currentTarget;
 
+    if (form.checkValidity() === false) {
+      e.preventDefault();
+      e.stopPropagation();
+    }
+    setValidated(true);
     const formObj = {
       firstName: firstName,
       secondName: secondName,
@@ -34,7 +41,10 @@ function UserForm({ closeModalWindow }) {
       phone: phone,
       salary: salary,
     };
-    closeModalWindow();
+    console.log("formObj", formObj);
+    console.log("form submitted");
+
+    // closeModalWindow();
   };
   return (
     <Container>
@@ -43,12 +53,21 @@ function UserForm({ closeModalWindow }) {
           <StepProgressBar step={page} />
         </Col>
       </Row>
-      <Form>
-        <Row>{page === 1 ? <Pg1 /> : page === 2 ? <Pg2 /> : <Pg3 />}</Row>
+      <Form noValidate validated={validated} onSubmit={submitForm}>
+        <Row>
+          <Pg1 />
+        </Row>
+        <Row>
+          <Pg2 />
+        </Row>
+        <Row>
+          <Pg3 />
+        </Row>
+        {/* <Row>{page === 1 ? <Pg1 /> : page === 2 ? <Pg2 /> : <Pg3 />}</Row> */}
         {page > 1 && <Button onClick={backButton}>Back</Button>}
         {page < 3 && <Button onClick={nextButton}>Next</Button>}
-        {page === 3 && (
-          <Button variant="primary" type="submit" onClick={submitForm}>
+        {page === 1 && (
+          <Button variant="primary" type="submit">
             Submit
           </Button>
         )}

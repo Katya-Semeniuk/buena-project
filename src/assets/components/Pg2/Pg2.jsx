@@ -16,7 +16,15 @@ function Pg2() {
     <>
       <Form.Group className="mb-3" controlId="formBasicPhoneNumber">
         <Form.Label>Phone Number:</Form.Label>
-        <Form.Control type="tel" value={phone} onChange={handlePhoneChange} />
+        <Form.Control
+          required
+          type="tel"
+          value={phone}
+          onChange={handlePhoneChange}
+        />
+        <Form.Control.Feedback type="invalid">
+          Please enter correct phone format
+        </Form.Control.Feedback>
       </Form.Group>
 
       <Form.Label>Salary indication:</Form.Label>
@@ -26,6 +34,7 @@ function Pg2() {
             <Row className="mb-2">
               <Col>
                 <Form.Check
+                  required
                   inline
                   label="0 - 1.000"
                   name="group1"
