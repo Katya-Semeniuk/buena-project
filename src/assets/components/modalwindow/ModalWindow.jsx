@@ -10,7 +10,7 @@ function ModalWindow({ show, handleClose }) {
           <Modal.Title className="text-uppercase">Register Form</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <UserForm closeModalWindow={handleClose} />
+          <UserForm />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

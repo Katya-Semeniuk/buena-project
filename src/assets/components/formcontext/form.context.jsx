@@ -4,7 +4,7 @@ const FormContext = createContext();
 
 export const FormProvider = ({ children }) => {
   const [firstName, setFirstName] = useState("");
-  const [secondName, setSecondName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [salary, setSalary] = useState(null);
@@ -13,12 +13,12 @@ export const FormProvider = ({ children }) => {
     <FormContext.Provider
       value={{
         firstName,
-        secondName,
+        lastName,
         email,
         phone,
         salary,
         setFirstName,
-        setSecondName,
+        setLastName,
         setEmail,
         setPhone,
         setSalary,

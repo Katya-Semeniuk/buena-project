@@ -1,33 +1,33 @@
 import { useContext } from "react";
 import FormContext from "../formcontext/form.context";
 // import { Link } from "react-router-dom";
+import { ListGroup } from "react-bootstrap";
 
 function Pg3() {
-  const { firstName, secondName, email, phone, salary } =
-    useContext(FormContext);
+  const { firstName, lastName, email, phone, salary } = useContext(FormContext);
   return (
-    <div>
-      <div className="d-flex">
+    <ListGroup>
+      <ListGroup.Item className="d-flex">
         <p className="me-2">First Name</p>
         <p>{firstName}</p>
-      </div>
-      <div className="d-flex">
+      </ListGroup.Item>
+      <ListGroup.Item className="d-flex">
         <p className="me-2">Second Name</p>
-        <p>{secondName}</p>
-      </div>
-      <div className="d-flex">
+        <p>{lastName}</p>
+      </ListGroup.Item>
+      <ListGroup.Item className="d-flex">
         <p className="me-2">Email</p>
         <p>{email}</p>
-      </div>
-      <div className="d-flex">
+      </ListGroup.Item>
+      <ListGroup.Item className="d-flex">
         <p className="me-2">Phone</p>
         <p>{phone}</p>
-      </div>
-      <div className="d-flex">
+      </ListGroup.Item>
+      <ListGroup.Item className="d-flex">
         <p className="me-2">Salary</p>
         <p>{salary}</p>
-      </div>
-    </div>
+      </ListGroup.Item>
+    </ListGroup>
   );
 }
 
