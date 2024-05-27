@@ -24,7 +24,7 @@ function UserForm({ handleClose }) {
   return (
     <Container>
       <Row>
-        <Col>
+        <Col className="mb-4">
           <StepProgressBar step={currentStep} />
         </Col>
       </Row>

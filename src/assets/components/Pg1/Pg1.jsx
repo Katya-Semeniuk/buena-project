@@ -57,7 +57,7 @@ function Pg1({ next }) {
           </Form.Group>
 
           <Form.Group className="mb-3" controlId="formBasicSecondName">
-            <Form.Label>Last name</Form.Label>
+            <Form.Label>Last name:</Form.Label>
             <Form.Control
               type="text"
               name="lastName"
@@ -87,7 +87,9 @@ function Pg1({ next }) {
               {errors.email}
             </Form.Control.Feedback>
           </Form.Group>
-          <Button type="submit">Next</Button>
+          <div className="d-flex justify-content-center">
+            <Button type="submit">Next</Button>
+          </div>
         </Form>
       )}
     </Formik>

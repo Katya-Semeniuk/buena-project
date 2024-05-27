@@ -126,10 +126,12 @@ function Pg2({ next, prev }) {
               </div>
             ))}
           </Container>
-          <Button type="button" onClick={() => prev()}>
-            Back
-          </Button>
-          <Button type="submit">Next</Button>
+          <div className="d-flex justify-content-center">
+            <Button className="me-4" type="button" onClick={() => prev()}>
+              Back
+            </Button>
+            <Button type="submit">Next</Button>
+          </div>
         </Form>
       )}
     </Formik>

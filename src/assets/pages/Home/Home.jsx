@@ -11,7 +11,7 @@ function Home() {
   const handleShow = () => setShow(true);
 
   return (
-    <>
+    <div className="wrap">
       <NavBar openModal={handleShow} />
       <Container className="text-center">
         <h1 className="title">
@@ -23,7 +23,7 @@ function Home() {
       </Container>
 
       <ModalWindow show={show} handleClose={handleClose} />
-    </>
+    </div>
   );
 }
 

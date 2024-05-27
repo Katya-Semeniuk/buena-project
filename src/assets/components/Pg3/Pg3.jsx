@@ -1,42 +1,8 @@
-// import { useContext } from "react";
-// import FormContext from "../formcontext/form.context";
-// // import { Link } from "react-router-dom";
-// import { ListGroup } from "react-bootstrap";
-
-// function Pg3() {
-//   const { firstName, lastName, email, phone, salary } = useContext(FormContext);
-//   return (
-//     <ListGroup>
-//       <ListGroup.Item className="d-flex">
-//         <p className="me-2">First Name</p>
-//         <p>{firstName}</p>
-//       </ListGroup.Item>
-//       <ListGroup.Item className="d-flex">
-//         <p className="me-2">Second Name</p>
-//         <p>{lastName}</p>
-//       </ListGroup.Item>
-//       <ListGroup.Item className="d-flex">
-//         <p className="me-2">Email</p>
-//         <p>{email}</p>
-//       </ListGroup.Item>
-//       <ListGroup.Item className="d-flex">
-//         <p className="me-2">Phone</p>
-//         <p>{phone}</p>
-//       </ListGroup.Item>
-//       <ListGroup.Item className="d-flex">
-//         <p className="me-2">Salary</p>
-//         <p>{salary}</p>
-//       </ListGroup.Item>
-//     </ListGroup>
-//   );
-// }
-
-// export default Pg3;
-
 import { useContext } from "react";
 import FormContext from "../formcontext/form.context";
-import { Link } from "react-router-dom";
 import { ListGroup, Button } from "react-bootstrap";
+import { NavLink } from "react-router-dom";
+import "./Pg3.css";
 
 function Pg3({ prev, handleClose }) {
   const { firstName, lastName, email, phone, salary } = useContext(FormContext);
@@ -44,33 +10,40 @@ function Pg3({ prev, handleClose }) {
     <>
       <ListGroup>
         <ListGroup.Item className="d-flex">
-          <p className="me-2">First Name</p>
-          <p>{firstName}</p>
+          <p className="me-2 text-uppercase">First Name:</p>
+          <p className="text-primary">{firstName}</p>
         </ListGroup.Item>
         <ListGroup.Item className="d-flex">
-          <p className="me-2">Last Name</p>
-          <p>{lastName}</p>
+          <p className="me-2  text-uppercase">Last Name:</p>
+          <p className="text-primary">{lastName}</p>
         </ListGroup.Item>
         <ListGroup.Item className="d-flex">
-          <p className="me-2">Email</p>
-          <p>{email}</p>
+          <p className="me-2  text-uppercase">Email:</p>
+          <p className="text-primary">{email}</p>
         </ListGroup.Item>
         <ListGroup.Item className="d-flex">
-          <p className="me-2">Phone</p>
-          <p>{phone}</p>
+          <p className="me-2  text-uppercase">Phone:</p>
+          <p className="text-primary">{phone}</p>
         </ListGroup.Item>
         <ListGroup.Item className="d-flex">
-          <p className="me-2">Salary</p>
-          <p>{salary}</p>
+          <p className="me-2  text-uppercase">Salary:</p>
+          <p className="text-primary">{salary}</p>
         </ListGroup.Item>
       </ListGroup>
-      <Button type="button" onClick={() => prev()}>
-        Back
-      </Button>
-
-      <Button type="button" onClick={() => handleClose()}>
-        <Link to="/account">Confirm</Link>
-      </Button>
+      <div className="d-flex justify-content-center mt-4">
+        <Button className="me-4" type="button" onClick={() => prev()}>
+          Back
+        </Button>
+        <Button
+          className="navlink-white"
+          type="button"
+          onClick={() => handleClose()}
+        >
+          <NavLink className="navlink-white" to="/account">
+            Confirm
+          </NavLink>
+        </Button>
+      </div>
     </>
   );
 }

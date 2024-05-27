@@ -2,7 +2,6 @@ import Container from "react-bootstrap/Container";
 import { Navbar, Nav, Button } from "react-bootstrap";
 import { toast } from "react-toastify";
 import Logo from "../../assets/buena-logo.png";
-import "./Navbar.css";
 
 function NavBar({ openModal }) {
   const handleSingIn = () => {
