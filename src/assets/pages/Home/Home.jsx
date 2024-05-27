@@ -12,7 +12,7 @@ function Home() {
 
   return (
     <>
-      <NavBar />
+      <NavBar openModal={handleShow} />
       <Container className="text-center">
         <h1 className="title">
           Register with Buena and start booking apartments
