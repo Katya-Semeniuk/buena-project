@@ -67,11 +67,9 @@ function Pg3({ prev, handleClose }) {
       <Button type="button" onClick={() => prev()}>
         Back
       </Button>
-      {/* <Button type="button">
-        <Link to="/account"> Confirm </Link>
-      </Button> */}
+
       <Button type="button" onClick={() => handleClose()}>
-        Confirm
+        <Link to="/account">Confirm</Link>
       </Button>
     </>
   );
