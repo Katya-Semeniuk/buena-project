@@ -35,9 +35,19 @@ h3 {
 }
 
 body {
+  margin: 0;
   min-height: 100vh;
   color: var(--text-dark-color);
   font-family: "Overpass", sans-serif;
+
+  background-image: linear-gradient(
+      rgba(34, 35, 53, 0.6),
+      rgba(34, 35, 53, 0.7)
+    ),
+    url(https://beratung.de/res/img/ratgeber/4f320c43-45fa-4614-827a-03a98564ba32-Hausverwaltungen-Deutschland-Hausverwaltungen-Kosten-fr-Eigentmer.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 /* :root {
