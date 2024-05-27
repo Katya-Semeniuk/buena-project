@@ -6,7 +6,7 @@ import "./StepProgressBar.css";
 export const StepProgressBar = ({ step }) => {
   return (
     <ProgressBar
-      percent={((step - 1) * 100) / 2}
+      percent={(step * 100) / 2}
       filledBackground="linear-gradient(to right, #fefb72, #f0bb31)"
     >
       <Step transition="scale">

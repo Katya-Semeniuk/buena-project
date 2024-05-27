@@ -10,15 +10,12 @@ function ModalWindow({ show, handleClose }) {
           <Modal.Title className="text-uppercase">Register Form</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <UserForm />
+          <UserForm handleClose={handleClose} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          {/* <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button> */}
         </Modal.Footer>
       </Modal>
     </>

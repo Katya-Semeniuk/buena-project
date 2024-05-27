@@ -9,7 +9,10 @@ const pg1ValidationSchema = Yup.object().shape({
   lastName: Yup.string().required("Last Name is required"),
   email: Yup.string()
     .email("Email must contain only Latin characters")
-    .matches(/^[a-zA-Z0-9@.]+$/, "Email must contain only Latin characters")
+    .matches(
+      /^[a-zA-Z0-9@.]+$/,
+      "Email must contain only Latin characters and @ symbol"
+    )
     .required("Email is required"),
 });
 
