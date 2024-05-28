@@ -24,7 +24,7 @@ function Account() {
 
   return (
     <div className="account-container d-flex justify-content-center align-items-center text-center">
-      <Card style={{ width: "35rem" }}>
+      <Card style={{ width: "45rem" }}>
         <Card.Body>
           <Card.Title>
             Hello <span className="text-primary">{dataUser.fname}</span>
