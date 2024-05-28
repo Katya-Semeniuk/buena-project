@@ -38,10 +38,6 @@ Radio buttons for selecting a salary range.<br> <br>
 Step 3: Display of the entered data on the screen for double-checking and confirmation of all data by the user. <br>
 You can also return to the previous step at any stage and change the data. Before clicking the Confirm button, the entered data is displayed in the form
 
-React bootstrap https://react-bootstrap.netlify.app/docs/getting-started/introduction
-
-React-step-prgress-bar
-
 ## Deployment
 
 <hr>
@@ -66,6 +62,7 @@ _The following technologies were used to create this project:_
 4. Formik;
 5. React-toastify;
 6. Yup;
+7. React-step-prgress-bar;
 
 _The following tools helped to develop this project:_
 
