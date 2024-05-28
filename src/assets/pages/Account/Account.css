@@ -1,7 +1,21 @@
-.wrap-container {
+.account-container {
   min-height: 100vh;
-  background-color: rgb(238, 237, 237);
+  background-image: linear-gradient(
+      rgba(34, 35, 53, 0.6),
+      rgba(34, 35, 53, 0.7)
+    ),
+    url(https://www.vonovia.de/var/site/storage/images/4/4/8/5/3255844-1-ger-DE/63618b42772e-Image-Wohnungen.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
-.name {
+.account-wrap {
+  background-color: rgb(238, 237, 237);
+  max-width: 350px;
+  padding: 25px;
+  border-radius: 4px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
 }
